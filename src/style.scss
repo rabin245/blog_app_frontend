@@ -109,7 +109,6 @@ $lightGreen: #b9e7e7;
     }
 
     // footer
-
     footer {
       margin-top: 100px;
       padding: 20px;
@@ -297,6 +296,92 @@ $lightGreen: #b9e7e7;
               background-color: $lightGreen;
               color: black;
             }
+          }
+        }
+      }
+    }
+
+    // write
+    .add {
+      margin-top: 20px;
+      display: flex;
+      gap: 20px;
+
+      .content {
+        flex: 5;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        input {
+          padding: 10px;
+          border: solid 1px lightgray;
+        }
+
+        .editorContainer {
+          height: 300px;
+          overflow: scroll;
+          border-bottom: solid 1px lightgray;
+
+          .editor {
+            height: 100%;
+            border: none;
+          }
+        }
+      }
+
+      .menu {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .item {
+          border: solid 1px lightgray;
+          padding: 10px;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          font-size: 12px;
+          color: #555;
+
+          h1 {
+            font-size: 20px;
+            margin: 0;
+          }
+
+          .file {
+            text-decoration: underline;
+            cursor: pointer;
+          }
+
+          .buttons {
+            display: flex;
+            justify-content: space-between;
+
+            :first-child {
+              cursor: pointer;
+              color: teal;
+              background-color: white;
+              border: solid 1px teal;
+              padding: 3px 5px;
+            }
+
+            :last-child {
+              cursor: pointer;
+              color: white;
+              background-color: teal;
+              border: solid 1px teal;
+              padding: 3px 5px;
+            }
+          }
+
+          .cat {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            color: teal;
           }
         }
       }
