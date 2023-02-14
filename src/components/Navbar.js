@@ -19,7 +19,7 @@ function Navbar() {
             <h6>Technology</h6>
           </Link>
           <Link className="link" to="/?cat=cinema">
-            <h6>CINEMNA</h6>
+            <h6>CINEMA</h6>
           </Link>
           <Link className="link" to="/?cat=desing">
             <h6>Design</h6>
