@@ -185,8 +185,6 @@ $lightGreen: #b9e7e7;
 
               &:hover {
                 border: 1px solid white;
-                background-color: $lightGreen;
-                color: black;
               }
             }
           }
@@ -227,7 +225,7 @@ $lightGreen: #b9e7e7;
           .info {
             display: flex;
             flex-direction: column;
-            justify-content: end;
+            justify-content: flex-end;
 
             span.username {
               font-weight: bold;
