@@ -1,42 +1,21 @@
-function Menu() {
-  let posts = [
-    {
-      id: 1,
-      title: "Lorem ipsum dolor sit amet.",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
-      img: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&dpr=2",
-    },
-    {
-      id: 2,
-      title: "Lorem ipsum dolor sit amet.",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
-      img: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=700",
-    },
-    {
-      id: 3,
-      title: "Lorem ipsum dolor sit amet.",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
-      img: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=700",
-    },
-    {
-      id: 4,
-      title: "Lorem ipsum dolor sit amet.",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
-      img: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=700",
-    },
-    {
-      id: 5,
-      title: "Lorem ipsum dolor sit amet.",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
-      img: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=700",
-    },
-    {
-      id: 6,
-      title: "Lorem ipsum dolor sit amet.",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
-      img: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=700",
-    },
-  ];
+import { useState, useEffect } from "react";
+import axios from "axios";
+
+function Menu({ cat }) {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const res = await axios.get(`/posts/?cat=${cat}`);
+        setPosts(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchData();
+  }, [cat]);
+
   return (
     <div className="menu">
       <h1>Other posts you may like</h1>
