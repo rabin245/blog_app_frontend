@@ -27,7 +27,7 @@ function Navbar() {
           <Link className="link" to="/?cat=cinema">
             <h6>CINEMA</h6>
           </Link>
-          <Link className="link" to="/?cat=desing">
+          <Link className="link" to="/?cat=design">
             <h6>Design</h6>
           </Link>
           <Link className="link" to="/?cat=food">

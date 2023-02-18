@@ -168,13 +168,19 @@ $lightGreen: #b9e7e7;
 
             h1 {
               font-size: 48px;
+              margin: 0;
             }
 
-            p {
+            div {
               font-size: 18px;
+              display: -webkit-box;
+              -webkit-line-clamp: 5;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
             }
 
             button {
+              margin-top: 2rem;
               width: max-content;
               padding: 10px 20px;
               border: none;
@@ -278,6 +284,7 @@ $lightGreen: #b9e7e7;
 
           h2 {
             color: #555;
+            margin: 0;
           }
 
           button {

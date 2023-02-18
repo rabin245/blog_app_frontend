@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import parse from "html-react-parser";
 
 function Home() {
   // let posts = [
@@ -46,6 +47,11 @@ function Home() {
   const location = useLocation();
   const cat = location.search;
 
+  // const getDescriptionText = (html) => {
+  //   const doc = new DOMParser().parseFromString(html, "text/html");
+  //   return doc.body.textContent;
+  // };
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -69,7 +75,9 @@ function Home() {
             <div className="content">
               <Link className="link" to={`/post/${post.id}`}>
                 <h1>{post.title}</h1>
-                <p>{post.desc}</p>
+                <div classname="content-description">
+                  {parse(`${post.desc}`)}
+                </div>
                 <button>Read More</button>
               </Link>
             </div>

@@ -6,6 +6,7 @@ import { useContext, useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { DateTime, Duration } from "luxon";
 import { AuthContext } from "../context/authContext";
+import parse from "html-react-parser";
 
 function Single() {
   const [post, setPost] = useState({});
@@ -44,8 +45,8 @@ function Single() {
         })
       )
       .toRelativeCalendar({
-        // unit: "days",
-        unit: "minutes",
+        unit: "days",
+        // unit: "minutes",
       });
 
     // console.log(diff);
@@ -77,15 +78,23 @@ function Single() {
     <div className="single">
       <div className="content">
         <img src={post.img} alt="" loading="lazy" />
+        {/* <img
+          src="/uploads/file-1676695431777-gratisography-frog-racer-free-stock-photo-800x525.jpg"
+          alt="post image"
+          loading="lazy"
+        /> */}
         <div className="user">
           {post.userImage && <img src={post.userImage} alt="" loading="lazy" />}
           <div className="info">
             <span className="username">{post.username}</span>
             <span>Posted {postTime}</span>
           </div>
-          {currentUser.username === post.username && (
+          {currentUser?.username === post.username && (
             <div className="edit">
-              <Link to={`/write?edit=2`}>
+              <Link
+                to={`/write?edit=${postId}`}
+                state={{ ...post, id: postId }}
+              >
                 <img src={Edit} alt="" />
               </Link>
               <img onClick={handleDelete} src={Delete} alt="" />
@@ -93,7 +102,7 @@ function Single() {
           )}
         </div>
         <h1>{post.title}</h1>
-        {post.desc}
+        {parse(`${post.desc}`)}
       </div>
       <div className="menu">
         <Menu cat={post.cat} />
