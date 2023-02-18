@@ -8,7 +8,7 @@ function Navbar() {
 
   return (
     <div className="navbar">
-      <div className="container">
+      <div className="navbar-container">
         <div className="logo">
           <Link to={"/"}>
             <img src={Logo} alt="" />

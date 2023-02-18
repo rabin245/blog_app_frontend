@@ -1,11 +1,21 @@
 $lightGreen: #b9e7e7;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  background-color: #f5f5f5;
+}
 
 .app {
   display: flex;
   justify-content: center;
+  border: solid 2px green;
 
   .container {
     width: 1024px;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
 
     .link {
       text-decoration: none;
@@ -18,7 +28,7 @@ $lightGreen: #b9e7e7;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      height: 100dvh;
       background-color: $lightGreen;
 
       h1 {
@@ -62,7 +72,7 @@ $lightGreen: #b9e7e7;
 
     // navbar
     .navbar {
-      .container {
+      .navbar-container {
         padding: 10px 0px;
         display: flex;
         align-items: center;
@@ -124,6 +134,7 @@ $lightGreen: #b9e7e7;
 
     // home
     .home {
+      flex: 1;
       .posts {
         margin-top: 50px;
         display: flex;
@@ -202,6 +213,7 @@ $lightGreen: #b9e7e7;
     .single {
       display: flex;
       gap: 50px;
+      flex: 1;
 
       .content {
         flex: 5;
@@ -311,6 +323,7 @@ $lightGreen: #b9e7e7;
       margin-top: 20px;
       display: flex;
       gap: 20px;
+      flex: 1;
 
       .content {
         flex: 5;
