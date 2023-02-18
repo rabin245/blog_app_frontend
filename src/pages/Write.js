@@ -1,13 +1,16 @@
-import { useReducer } from "react";
+import { useContext, useReducer } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import { DateTime } from "luxon";
+import { AuthContext } from "../context/authContext";
 
 function Write() {
   const state = useLocation().state;
   const navigate = useNavigate();
+
+  const { currentUser } = useContext(AuthContext);
 
   const initialPostDetails = {
     title: state?.title || "",
@@ -56,6 +59,14 @@ function Write() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // check if the user is signed in
+    // by checking the user object in context
+    // if not, redirect to login page
+    if (currentUser === null) {
+      navigate("/login");
+      return;
+    }
 
     const imgUrl = await uploadFile();
     try {
