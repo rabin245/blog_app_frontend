@@ -9,7 +9,6 @@ body {
 .app {
   display: flex;
   justify-content: center;
-  border: solid 2px green;
 
   .container {
     width: 1024px;
@@ -91,10 +90,18 @@ body {
             font-size: 16px;
             font-weight: 300;
             text-transform: uppercase;
+
+            &:hover {
+              color: teal;
+            }
           }
 
           span {
             cursor: pointer;
+
+            &:hover {
+              color: teal;
+            }
           }
 
           .write {
@@ -202,6 +209,8 @@ body {
 
               &:hover {
                 border: 1px solid white;
+                background-color: $lightGreen;
+                color: black;
               }
             }
           }
@@ -265,9 +274,11 @@ body {
         h1 {
           font-size: 42px;
           color: #333;
+          margin: 0;
         }
 
         p {
+          margin: 0;
           text-align: justify;
           line-height: 30px;
         }
