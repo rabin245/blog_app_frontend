@@ -105,7 +105,7 @@ function Single() {
         {parse(`${post.desc}`)}
       </div>
       <div className="menu">
-        <Menu cat={post.cat} />
+        <Menu cat={post.cat} currentPostId={postId} />
       </div>
     </div>
   );

@@ -1,14 +1,21 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
-function Menu({ cat }) {
+function Menu({ cat, currentPostId }) {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
       try {
         const res = await axios.get(`/posts/?cat=${cat}`);
-        setPosts(res.data);
+
+        const filteredData = [...res.data]
+          .filter((post) => post.id != currentPostId)
+          .sort(() => 0.5 - Math.random())
+          .slice(0, 5);
+
+        setPosts(filteredData);
       } catch (error) {
         console.log(error);
       }
@@ -23,7 +30,9 @@ function Menu({ cat }) {
         <div className="post" key={post.id}>
           <img src={post.img} alt="" />
           <h2>{post.title}</h2>
-          <button>Read More</button>
+          <Link to={`/post/${post.id}`}>
+            <button>Read More</button>
+          </Link>
         </div>
       ))}
     </div>
