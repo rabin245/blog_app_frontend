@@ -3,6 +3,7 @@ import {
   Outlet,
   RouterProvider,
   useLocation,
+  useNavigation,
 } from "react-router-dom";
 import Home, { homeLoader } from "./pages/Home";
 import Login from "./pages/Login";
@@ -13,6 +14,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import "./style.scss";
 import { useEffect } from "react";
+import { ClipLoader } from "react-spinners";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -29,11 +31,19 @@ function ScrollToTop() {
 }
 
 function Layout() {
+  const { state } = useNavigation();
+  console.log(state);
   return (
     <>
       <ScrollToTop />
       <Navbar />
-      <Outlet />
+      {state === "loading" ? (
+        <div className="loading-indicator">
+          <ClipLoader loading={true} size={150} color={"teal"} />
+        </div>
+      ) : (
+        <Outlet />
+      )}
       <Footer />
     </>
   );

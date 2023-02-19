@@ -85,7 +85,7 @@ function Home() {
             <div className="content">
               <Link className="link" to={`/post/${post.id}`}>
                 <h1>{post.title}</h1>
-                <div classname="content-description">
+                <div className="content-description">
                   {parse(`${post.desc}`)}
                 </div>
                 <button>Read More</button>
