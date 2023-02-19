@@ -7,7 +7,7 @@ import {
 import Home, { homeLoader } from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Single from "./pages/Single";
+import Single, { loader as postLoader } from "./pages/Single";
 import Write from "./pages/Write";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -47,6 +47,7 @@ const router = createBrowserRouter([
       {
         path: "/post/:id",
         element: <Single />,
+        loader: postLoader,
       },
       {
         path: "/write",

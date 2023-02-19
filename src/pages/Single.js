@@ -1,15 +1,20 @@
 import Edit from "../img/edit.png";
 import Delete from "../img/delete.png";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate, useLoaderData } from "react-router-dom";
 import Menu from "../components/Menu";
-import { useContext, useEffect, useMemo, useState } from "react";
+import { useContext, useMemo } from "react";
 import axios from "axios";
 import { DateTime, Duration } from "luxon";
 import { AuthContext } from "../context/authContext";
 import parse from "html-react-parser";
 
+export async function loader({ params }) {
+  const res = await axios.get(`/posts/${params.id}`);
+  return res.data[0];
+}
+
 function Single() {
-  const [post, setPost] = useState({});
+  const post = useLoaderData();
   const { currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -52,18 +57,6 @@ function Single() {
     // console.log(diff);
     return diff;
   }, [post]);
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const res = await axios.get(`/posts/${postId}`);
-        setPost(res.data[0]);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchData();
-  }, [postId]);
 
   const handleDelete = async () => {
     try {
