@@ -21,7 +21,7 @@ function Menu({ cat, currentPostId }) {
       }
     }
     fetchData();
-  }, [cat]);
+  }, [cat, currentPostId]);
 
   return (
     <div className="menu">
