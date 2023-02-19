@@ -4,7 +4,7 @@ import {
   RouterProvider,
   useLocation,
 } from "react-router-dom";
-import Home from "./pages/Home";
+import Home, { homeLoader } from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Single from "./pages/Single";
@@ -43,8 +43,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <Layout />,
     children: [
-      { path: "/", element: <Home /> },
-
+      { path: "/", element: <Home />, loader: homeLoader },
       {
         path: "/post/:id",
         element: <Single />,
