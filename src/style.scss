@@ -356,13 +356,13 @@ body {
         }
 
         .editorContainer {
-          height: 300px;
-          overflow: scroll;
-          border-bottom: solid 1px lightgray;
-
+          height: 400px;
           .editor {
             height: 100%;
-            border: none;
+
+            .ql-container {
+              height: 358px;
+            }
           }
         }
       }
@@ -389,8 +389,12 @@ body {
           }
 
           .file {
-            text-decoration: underline;
             cursor: pointer;
+            text-decoration: underline;
+          }
+          .image-error {
+            padding-left: 5px;
+            color: rgb(218, 95, 95);
           }
 
           .buttons {
