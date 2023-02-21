@@ -34,8 +34,6 @@ function Write() {
     }
   }, initialPostDetails);
 
-  const [imageError, setImageError] = useState(false);
-
   const categoryButtonsValues = [
     { value: "art", id: "art", label: "Art" },
     { value: "science", id: "science", label: "Science" },
@@ -44,19 +42,6 @@ function Write() {
     { value: "design", id: "design", label: "Design" },
     { value: "food", id: "food", label: "Food" },
   ];
-
-  const pickImage = (e) => {
-    const file = e.target.files[0];
-
-    if (file) {
-      if (/^image[/]/.test(file.type)) {
-        setImageError(false);
-        dispatch({ type: "SET_FILE", payload: file });
-      } else {
-        setImageError(true);
-      }
-    }
-  };
 
   const uploadFile = async () => {
     try {
@@ -143,13 +128,15 @@ function Write() {
             type="file"
             name=""
             id="file"
-            onChange={pickImage}
+            accept="image/*"
+            onChange={(e) =>
+              dispatch({ type: "SET_FILE", payload: e.target.files[0] })
+            }
           />
           <div>
             <label className="file" htmlFor="file">
               Upload Image
             </label>
-            {imageError && <span className="image-error">Pick an image</span>}
           </div>
           <div className="buttons">
             <button>Save as a draft</button>
