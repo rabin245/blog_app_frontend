@@ -16,45 +16,6 @@ export async function homeLoader({ request }) {
 }
 
 function Home() {
-  // let posts = [
-  //   {
-  //     id: 1,
-  //     title: "Lorem ipsum dolor sit amet.",
-  //     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
-  //     img: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&dpr=2",
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "Lorem ipsum dolor sit amet.",
-  //     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
-  //     img: "https://images.pexels.com/photos/7008010/pexels-photo-7008010.jpeg?auto=compress&cs=tinysrgb&dpr=2",
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "Lorem ipsum dolor sit amet.",
-  //     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
-  //     img: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb",
-  //   },
-  //   {
-  //     id: 4,
-  //     title: "Lorem ipsum dolor sit amet.",
-  //     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
-  //     img: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=700",
-  //   },
-  //   {
-  //     id: 5,
-  //     title: "Lorem ipsum dolor sit amet.",
-  //     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
-  //     img: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=700",
-  //   },
-  //   {
-  //     id: 6,
-  //     title: "Lorem ipsum dolor sit amet.",
-  //     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
-  //     img: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=700",
-  //   },
-  // ];
-
   const data = useLoaderData();
   const posts = data || [];
 
